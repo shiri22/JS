@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function submitForm(submitButton) {
+            var fieldSet = submitButton.closest("fieldset");
+            var email = fieldSet.querySelector("#email");
+            if (email && validateEmail(email)) {
+                document.getElementById("login").submit();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h4>Do you already have an account?</h4>
+    <button onclick="showFieldset('fieldset_login', 'fieldset_register')">Yes</button>
+    <button onclick="showFieldset('fieldset_register', 'fieldset_login')">No</button>
+    <br>
+    <br>
+    <form id="login" name="login" method="post" action="noaction.html">
+        <fieldset id="fieldset_login">
+            <legend>Log in</legend>
+            <p>
+                <label for="user_login">User ID:</label>
+                <input type="text" id="user_login">
+            </p>
+            <p>
+                <label for="pw_login">Password:</label>
+                <input type="password" name="pw" id="pw_login">
+            </p>
+            <p>
+                <button name="button" id="button">Submit</button>
+            </p>
+        </fieldset>
+        <fieldset id="fieldset_register">
+            <legend>Register</legend>
+            <p>
+                <label for="user_register">User ID:</label>
+                <input type="text" id="user_register">
+            </p>
+            <p>
+                <label for="pw_register">Password:</label>
+                <input type="password" name="pw" id="pw_register">
+            </p>
+            <p>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </p>
+            <p>
+                <button type="button" name="button" id="button" onclick="submitForm(this)">Submit</button>
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>
